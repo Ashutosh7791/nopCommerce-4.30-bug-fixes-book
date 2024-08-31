@@ -1,0 +1,17 @@
+﻿@model BooksModel
+
+<div asp-validation-summary="All"></div>
+<input asp-for="Id" type="hidden" />
+
+@{
+    const string hideInfoBlockAttributeName = "CustomerPage.HideInfoBlock";
+    var hideInfoBlock = genericAttributeService.GetAttribute<bool>(workContext.CurrentCustomer, hideInfoBlockAttributeName);
+}
+
+<div class="content">
+    <div class="form-horizontal">
+        <nop-panels id="books-panels">
+            <nop-panel asp-name="books-info" asp-icon="fa fa-info" asp-title="Books Info" asp-hide-block-attribute-name="@hideInfoBlockAttributeName" asp-hide="@hideInfoBlock" asp-advanced="false">@await Html.PartialAsync("_CreateOrUpdate.Info", Model)</nop-panel>
+        </nop-panels>
+    </div>
+</div>
