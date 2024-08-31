@@ -89,8 +89,11 @@ namespace Nop.Web.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public virtual IActionResult Create(BooksModel model, bool continueEditing, IFormCollection form)
+        public virtual IActionResult Create(BooksModel model)
         {
+            if (!string.IsNullOrWhiteSpace(model.Name) && _booksService.GetBookByName(model.Name) != null)
+                ModelState.AddModelError(string.Empty, "Book is already exists.");
+
             if (ModelState.IsValid)
             {
                 //fill entity from model
@@ -127,12 +130,15 @@ namespace Nop.Web.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public virtual IActionResult Edit(BooksModel model, bool continueEditing, IFormCollection form)
+        public virtual IActionResult Edit(BooksModel model)
         {
             //try to get a book with the specified id
             var book = _booksService.GetBookById(model.Id);
             if (book == null || book.Deleted)
                 return RedirectToAction("List");
+
+            if (_booksService.IsBookAlreadyExists(model.Id, model.Name))
+                ModelState.AddModelError(string.Empty, "Book is already exists.");
 
             if (ModelState.IsValid)
             {

@@ -27,11 +27,26 @@ namespace Nop.Services.EntityService
         void DeleteBook(Books book);
 
         /// <summary>
-        /// Gets a book
+        /// Gets a book by id
         /// </summary>
         /// <param name="bookId">Book identifier</param>
         /// <returns>A book</returns>
         Books GetBookById(int bookId);
+
+        /// <summary>
+        /// Gets a book by name
+        /// </summary>
+        /// <param name="bookId">Book identifier</param>
+        /// <returns>A book</returns>
+        Books GetBookByName(string name);
+
+        /// <summary>
+        /// Is book already exists
+        /// </summary>
+        /// <param name="id">Name</param>
+        /// <param name="name">Name</param>
+        /// <returns>bool</returns>
+        bool IsBookAlreadyExists(int id, string name);
 
         /// <summary>
         /// Insert a book

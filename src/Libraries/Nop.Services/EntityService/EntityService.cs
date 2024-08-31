@@ -88,6 +88,43 @@ namespace Nop.Services.EntityService
         }
 
         /// <summary>
+        /// Get book by name
+        /// </summary>
+        /// <param name="name">Name</param>
+        /// <returns>Book</returns>
+        public virtual Books GetBookByName(string name)
+        {
+            if (string.IsNullOrWhiteSpace(name))
+                return null;
+
+            var query = from c in _booksRepository.Table
+                        orderby c.Id
+                        where c.Name == name
+                        select c;
+            var book = query.FirstOrDefault();
+            return book;
+        }
+
+        /// <summary>
+        /// Is book already exists
+        /// </summary>
+        /// <param name="id">Name</param>
+        /// <param name="name">Name</param>
+        /// <returns>bool</returns>
+        public virtual bool IsBookAlreadyExists(int id, string name)
+        {
+            if (id <= 0)
+                return false;
+
+            var query = from c in _booksRepository.Table
+                        orderby c.Id
+                        where c.Id != id && c.Name == name && c.Deleted == false
+                        select c;
+            var book = query.FirstOrDefault();
+            return book != null ? true : false;
+        }
+
+        /// <summary>
         /// Insert a book
         /// </summary>
         /// <param name="book">Book</param>
