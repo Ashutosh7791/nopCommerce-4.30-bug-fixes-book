@@ -2,15 +2,12 @@
 
 @{
     //page title
-    ViewBag.PageTitle = "AddNewBook";//T("Admin.Customers.Customers.AddNew").Text;
-    //active menu item (system name)
-    //Html.SetActiveMenuItemSystemName("Customers list");
+    ViewBag.PageTitle = "AddNewBook";
 }
 
 <form asp-controller="Books" asp-action="Create" method="post">
     <div class="content-header clearfix">
         <h1 class="pull-left">
-            @*@T("Admin.Customers.Customers.AddNew")*@
             Add a new Book
             <small>
                 <i class="fa fa-arrow-circle-left"></i>
@@ -20,14 +17,8 @@
         <div class="pull-right">
             <button type="submit" name="save" class="btn bg-blue">
                 <i class="fa fa-floppy-o"></i>
-                @*@T("Admin.Common.Save")*@
                 Save
             </button>
-            @*<button type="submit" name="save-continue" class="btn bg-blue">
-                <i class="fa fa-floppy-o"></i>
-                @T("Admin.Common.SaveContinue")
-            </button>
-            @await Component.InvokeAsync("AdminWidget", new { widgetZone = AdminWidgetZones.CustomerDetailsButtons })*@
         </div>
     </div>
     @await Html.PartialAsync("_CreateOrUpdate", Model)
