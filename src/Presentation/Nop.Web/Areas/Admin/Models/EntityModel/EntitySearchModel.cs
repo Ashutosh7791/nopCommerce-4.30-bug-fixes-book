@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace Nop.Web.Areas.Admin.Models.EntityModel
 {
     /// <summary>
-    /// Represents a Books search model
+    /// Represents a books search model
     /// </summary>
     public partial class BooksSearchModel : BaseSearchModel
     {

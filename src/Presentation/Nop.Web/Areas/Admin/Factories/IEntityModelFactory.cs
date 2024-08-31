@@ -25,6 +25,6 @@ namespace Nop.Web.Areas.Admin.Factories
         /// <param name="model">Book model</param>
         /// <param name="book">Book</param>
         /// <returns>Books model</returns>
-        BooksModel PrepareBooksModel(BooksModel model, Books books, bool excludeProperties = false);
+        BooksModel PrepareBooksModel(BooksModel model, Books books);
     }
 }

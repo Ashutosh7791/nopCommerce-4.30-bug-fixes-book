@@ -60,7 +60,7 @@ namespace Nop.Services.EntityService
         /// <summary>
         /// Delete a book
         /// </summary>
-        /// <param name="customer">Book</param>
+        /// <param name="book">Book</param>
         public virtual void DeleteBook(Books book)
         {
             if (book == null)
@@ -99,7 +99,7 @@ namespace Nop.Services.EntityService
 
             var query = from c in _booksRepository.Table
                         orderby c.Id
-                        where c.Name == name
+                        where c.Name == name && c.Deleted == false
                         select c;
             var book = query.FirstOrDefault();
             return book;

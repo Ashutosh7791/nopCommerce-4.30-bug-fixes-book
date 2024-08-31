@@ -10,7 +10,7 @@ using Nop.Core.Domain.Entity;
 namespace Nop.Data.Mapping.Builders.EntityMap
 {
     /// <summary>
-    /// Represents a customer entity builder
+    /// Represents a book entity builder
     /// </summary>
     public partial class BooksBuilder : NopEntityBuilder<Books>
     {

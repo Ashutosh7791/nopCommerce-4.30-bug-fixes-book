@@ -88,7 +88,7 @@ namespace Nop.Web.Areas.Admin.Factories
         /// <param name="book">Book</param>
         /// <param name="excludeProperties">Whether to exclude populating of some properties of model</param>
         /// <returns>Books model</returns>
-        public virtual BooksModel PrepareBooksModel(BooksModel model, Books books, bool excludeProperties = false)
+        public virtual BooksModel PrepareBooksModel(BooksModel model, Books books)
         {
             if (books != null)
             {
@@ -96,7 +96,6 @@ namespace Nop.Web.Areas.Admin.Factories
                 model ??= new BooksModel();
 
                 //whether to fill in some of properties
-                
                 model.Id = books.Id;
                 model.Name = books.Name;
                 model.CreatedOn = books.CreatedOn;

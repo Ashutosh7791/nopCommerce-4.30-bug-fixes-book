@@ -7,7 +7,7 @@ namespace Nop.Core.Domain.Entity
     public partial class Books : BaseEntity
     {
         /// <summary>
-        /// Gets or sets the username
+        /// Gets or sets the name
         /// </summary>
         public string Name { get; set; }
 
@@ -17,7 +17,7 @@ namespace Nop.Core.Domain.Entity
         public DateTime CreatedOn { get; set; }
 
         /// <summary>
-        /// Gets or sets a value indicating whether the customer has been deleted
+        /// Gets or sets a value indicating whether the book has been deleted
         /// </summary>
         public bool Deleted { get; set; }
     }

@@ -110,7 +110,7 @@ namespace Nop.Web.Areas.Admin.Controllers
             }
 
             //prepare model
-            model = _booksModelFactory.PrepareBooksModel(model, null, true);
+            model = _booksModelFactory.PrepareBooksModel(model, null);
 
             //if we got this far, something failed, redisplay form
             return View(model);
@@ -160,7 +160,7 @@ namespace Nop.Web.Areas.Admin.Controllers
             }
 
             //prepare model
-            model = _booksModelFactory.PrepareBooksModel(model, book, true);
+            model = _booksModelFactory.PrepareBooksModel(model, book);
 
             //if we got this far, something failed, redisplay form
             return View(model);
