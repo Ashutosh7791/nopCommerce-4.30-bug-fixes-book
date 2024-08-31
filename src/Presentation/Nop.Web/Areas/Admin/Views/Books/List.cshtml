@@ -1,10 +1,5 @@
 ﻿@model BooksSearchModel
 
-@using System.Globalization;
-@using Nop.Core.Domain.Media
-
-@inject MediaSettings _mediaSettings
-
 @{
     //page title
     ViewBag.PageTitle = "Books";
@@ -23,7 +18,7 @@
         <div class="pull-right">
             <a asp-action="Create" class="btn bg-blue">
                 <i class="fa fa-plus-square"></i>
-                AddNew
+                Add new
             </a>
         </div>
     </div>
@@ -76,23 +71,16 @@
                 Length = Model.PageSize,
                 LengthMenu = Model.AvailablePageSizes,
                 Filters = new List<FilterParameter>
-                        {
-                        new FilterParameter(nameof(Model.SearchName)),
-                        }
+                {
+                new FilterParameter(nameof(Model.SearchName)),
+                }
             };
 
-            gridModel.ColumnCollection.Add(new ColumnProperty(nameof(BooksModel.Id))
-            {
-                IsMasterCheckBox = true,
-                Render = new RenderCheckBox("checkbox_customers"),
-                ClassName = NopColumnClassDefaults.CenterAll,
-                Width = "30"
-            });
             gridModel.ColumnCollection.Add(new ColumnProperty(nameof(BooksModel.Name))
             {
                 Title = "Name"
             });
-                            gridModel.ColumnCollection.Add(new ColumnProperty(nameof(BooksModel.CreatedOn))
+            gridModel.ColumnCollection.Add(new ColumnProperty(nameof(BooksModel.CreatedOn))
             {
                 Title = "CreatedOn",
                 Render = new RenderDate()
