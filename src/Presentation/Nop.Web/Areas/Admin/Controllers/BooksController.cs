@@ -39,19 +39,17 @@ namespace Nop.Web.Areas.Admin.Controllers
 
         private readonly IBooksService _booksService;
         private readonly IBooksModelFactory _booksModelFactory;
-        private readonly IPermissionService _permissionService;
         private readonly INotificationService _notificationService;
 
         #endregion
 
         #region Ctor
 
-        public BooksController(IBooksService booksService, IBooksModelFactory booksModelFactory, INotificationService notificationService, IPermissionService permissionService)
+        public BooksController(IBooksService booksService, IBooksModelFactory booksModelFactory, INotificationService notificationService)
         {
             _booksService = booksService;
             _booksModelFactory = booksModelFactory;
             _notificationService = notificationService;
-            _permissionService = permissionService;
         }
 
         #endregion
@@ -97,7 +95,7 @@ namespace Nop.Web.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 //fill entity from model
-                var books = new Books();//model.ToEntity<Books>();
+                var books = model.ToEntity<Books>();
 
                 books.Name = model.Name;
                 books.CreatedOn = DateTime.Now;
@@ -146,8 +144,6 @@ namespace Nop.Web.Areas.Admin.Controllers
                 {
                     book.Name = model.Name;
                     _booksService.UpdateBook(book);
-
-                    //return RedirectToAction("Edit", new { id = book.Id });
 
                     _notificationService.SuccessNotification("The book has been updated successfully.");
 

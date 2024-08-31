@@ -25,6 +25,11 @@ namespace Nop.Web.Areas.Admin.Infrastructure.Mapper
                 .ForMember(model => model.Name, options => options.Ignore())
                 .ForMember(entity => entity.CreatedOn, options => options.Ignore())
                 .ForMember(entity => entity.Deleted, options => options.Ignore());
+
+            CreateMap<BooksModel, Books>()
+                .ForMember(model => model.Name, options => options.Ignore())
+                .ForMember(entity => entity.CreatedOn, options => options.Ignore())
+                .ForMember(entity => entity.Deleted, options => options.Ignore());
         }
 
         #endregion
