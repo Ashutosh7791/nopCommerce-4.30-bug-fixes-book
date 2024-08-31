@@ -79,7 +79,7 @@ namespace Nop.Services.EntityService
         /// </summary>
         /// <param name="bookId">Book identifier</param>
         /// <returns>A book</returns>
-        public Books GetBookById(int bookId)
+        public virtual Books GetBookById(int bookId)
         {
             if (bookId == 0)
                 return null;

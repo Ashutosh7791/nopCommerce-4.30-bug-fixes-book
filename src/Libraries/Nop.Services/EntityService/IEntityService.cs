@@ -12,7 +12,6 @@ namespace Nop.Services.EntityService
         /// <summary>
         /// Gets all books
         /// </summary>
-        /// <param name="createdon">Created date to null to load all records</param>
         /// <param name="name">name; null to load all books</param>
         /// <param name="pageIndex">Page index</param>
         /// <param name="pageSize">Page size</param>
@@ -36,7 +35,7 @@ namespace Nop.Services.EntityService
         /// <summary>
         /// Gets a book by name
         /// </summary>
-        /// <param name="bookId">Book identifier</param>
+        /// <param name="name">Book identifier</param>
         /// <returns>A book</returns>
         Books GetBookByName(string name);
 
